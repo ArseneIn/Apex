@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* ── Color Tokens ── */
+  --color-primary: #004ac6;
+  --color-primary-container: #2563eb;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #eeefff;
+  --color-on-primary-fixed: #00174b;
+  --color-on-primary-fixed-variant: #003ea8;
+  --color-primary-fixed: #dbe1ff;
+  --color-primary-fixed-dim: #b4c5ff;
+  --color-inverse-primary: #b4c5ff;
+  --color-surface-tint: #0053db;
+
+  --color-secondary: #505f76;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #d0e1fb;
+  --color-on-secondary-container: #54647a;
+  --color-secondary-fixed: #d3e4fe;
+  --color-secondary-fixed-dim: #b7c8e1;
+  --color-on-secondary-fixed: #0b1c30;
+  --color-on-secondary-fixed-variant: #38485d;
+
+  --color-tertiary: #525657;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #6b6e70;
+  --color-on-tertiary-container: #eff1f3;
+  --color-tertiary-fixed: #e0e3e5;
+  --color-tertiary-fixed-dim: #c4c7c9;
+  --color-on-tertiary-fixed: #191c1e;
+  --color-on-tertiary-fixed-variant: #444749;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  --color-surface: #faf8ff;
+  --color-surface-dim: #d2d9f4;
+  --color-surface-bright: #faf8ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f2f3ff;
+  --color-surface-container: #eaedff;
+  --color-surface-container-high: #e2e7ff;
+  --color-surface-container-highest: #dae2fd;
+  --color-surface-muted: #F1F5F9;
+  --color-surface-variant: #dae2fd;
+
+  --color-on-surface: #131b2e;
+  --color-on-surface-variant: #434655;
+  --color-on-background: #131b2e;
+  --color-background: #faf8ff;
+
+  --color-inverse-surface: #283044;
+  --color-inverse-on-surface: #eef0ff;
+
+  --color-outline: #737686;
+  --color-outline-variant: #c3c6d7;
+  --color-border-subtle: #E2E8F0;
+
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+
+  /* ── Typography ── */
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+  --font-family-inter: 'Inter', system-ui, sans-serif;
+
+  /* ── Border Radius ── */
+  --radius-sm: 0.125rem;
+  --radius: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* ── Spacing Tokens ── */
+  --spacing-apex-xs: 4px;
+  --spacing-apex-sm: 8px;
+  --spacing-apex-md: 16px;
+  --spacing-apex-lg: 24px;
+  --spacing-apex-xl: 32px;
+  --spacing-apex-xxl: 48px;
+}
+
+/* Base */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #F1F5F9;
+  color: #131b2e;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Material Symbols font configuration */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f2f3ff; border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #c3c6d7; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #737686; }
+
+/* ── Skeleton shimmer ── */
+@keyframes shimmer {
+  0% { background-position: -468px 0; }
+  100% { background-position: 468px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(to right, #F1F5F9 8%, #E2E8F0 18%, #F1F5F9 33%);
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 4px;
+}
+
+/* ── Task card hover ── */
+.task-card {
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.task-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  border-color: #2563eb !important;
+  transform: translateY(-2px);
+}
+
+.task-card.dragging {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+  transform: rotate(2deg) scale(1.02);
+}
+
+/* ── Priority badges ── */
+.badge-high {
+  background-color: #ffdad6;
+  color: #93000a;
+}
+.badge-medium {
+  background-color: #d0e1fb;
+  color: #38485d;
+}
+.badge-low {
+  background-color: #e0e3e5;
+  color: #444749;
+}
+
+/* ── Kanban column droppable highlight ── */
+.droppable-over {
+  background-color: #eaedff !important;
+  border-color: #2563eb !important;
+}
+
+/* ── Nav active state ── */
+.nav-link-active {
+  background-color: #d0e1fb;
+  color: #54647a;
+  font-weight: 600;
+}
+
+/* ── Toast animations ── */
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);   opacity: 1; }
+}
+@keyframes slide-out-right {
+  from { transform: translateX(0);   opacity: 1; }
+  to   { transform: translateX(100%); opacity: 0; }
+}
+.toast-enter { animation: slide-in-right 0.3s ease forwards; }
+.toast-exit  { animation: slide-out-right 0.3s ease forwards; }
+
+/* ── Modal backdrop ── */
+.modal-backdrop {
+  backdrop-filter: blur(4px);
+  background: rgba(19, 27, 46, 0.5);
+}
